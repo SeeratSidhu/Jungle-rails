@@ -2,8 +2,8 @@
   
   <div class="alert alert-info" role="alert">
   <h3>Your Jungle cart is empty.</h3> <br>
-  <a href="<%= products_path %>" class="alert-link">Back to Home</a>
-</div>
+  </div>
+  <%= link_to "Back to Home", root_path, class: 'btn btn-lg btn-primary' %>
 
 <% else %>
 <section class="cart-show">
