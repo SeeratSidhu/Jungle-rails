@@ -50,10 +50,30 @@ main section.categories-show {
         border-bottom-left-radius: 20px;
         font-size: 0.8em;
       }
+      aside.sold-out-badge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        background-color: rgb(196, 92, 92);
+        color: white;
+        border-top-left-radius: 4px;
+        border-bottom-right-radius: 20px;
+        font-size: 0.8em;
+        opacity: 0.5;
+      }
 
+      .hide {
+        display: none;
+      }
+      
       &:hover {
 
         border-color: #999;
+
+        aside.sold-out-badge {
+          opacity: 1.0;
+        }
 
         footer {
           opacity: 1.0;
