@@ -1,3 +1,11 @@
+<% if enhanced_cart.empty? %>
+  
+  <div class="alert alert-info" role="alert">
+  <h3>Your Jungle cart is empty.</h3> <br>
+  <a href="<%= products_path %>" class="alert-link">Back to Home</a>
+</div>
+
+<% else %>
 <section class="cart-show">
 
   <header class="page-header">
@@ -50,3 +58,4 @@
   </div>
 
 </section>
+<% end %>
