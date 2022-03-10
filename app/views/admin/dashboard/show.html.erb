@@ -1,2 +1,14 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<div class="panel panel-default">
+  <div class="panel-body">Products: <%= @products_count%>
+    <%= link_to admin_products_path, class: 'btn btn-default pull-right' do %>
+      View Products &raquo;
+    <% end %></div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">Categories: <%= @categories_count%>
+<%= link_to category_path(1), class: 'btn btn-default pull-right' do %>
+      View categories &raquo;
+      <% end %></div>
+</div>
+
