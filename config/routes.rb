@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :create, :new]
   end
 
+  get '/signup', to: 'users#new'
+  post '/users', to: 'users#create'
+  
   resources :about, only: [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
