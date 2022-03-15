@@ -22,7 +22,7 @@ RSpec.describe Product, type: :model do
 
     it "is not valid without a price" do
       @product = Product.create(name: "Water Sweater", description: "Sweater made of snow", quantity: 10, category: @category)
-     
+      
       expect(@product.errors.full_messages).to include("Price is not a number")
     end
 
