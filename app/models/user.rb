@@ -8,4 +8,19 @@ class User < ActiveRecord::Base
   validates_length_of :password, minimum: 6, on: :create
   validates_presence_of :password_confirmation
   has_secure_password
+  
+  # def authenticate(password)
+  #   BCrypt::Password.new(password_digest) == password &&
+  #   self
+  # end
+
+  
+  def self.authenticate_with_credentials(email, password)
+    user = User.find_by_email(email.strip.downcase) unless email.nil?
+    if user && user.authenticate(password)
+      return user
+    else
+      return nil
+    end
+  end
 end

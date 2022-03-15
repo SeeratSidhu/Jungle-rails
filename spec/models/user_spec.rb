@@ -54,4 +54,34 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Last name can't be blank")
     end
   end
+
+
+  describe '.authenticate_with_credentials' do
+
+    before do
+      @user = User.create(first_name: "Willy", last_name: "Nilly", email: "will@n.com", password: "123456", password_confirmation: "123456")
+    end
+
+    it "logs in successfully" do
+
+      expect(User.authenticate_with_credentials("will@n.com", "123456")).to be_an_instance_of(User)
+    end
+    it "doesn't log in successfully without email" do
+
+      expect(User.authenticate_with_credentials(nil , "123456")).to be_nil
+    end
+    it "doesn't log in successfully without password" do
+
+      expect(User.authenticate_with_credentials("will@n.com", nil)).to be_nil
+    end
+
+    it "logs in successfully if email has trailing and leading whitespace" do
+      expect(User.authenticate_with_credentials("  will@n.com  ", "123456")).to be_an_instance_of(User)
+    end
+
+    it "logs in successfully if email has wrong case" do
+      expect(User.authenticate_with_credentials("WiLL@n.Com", "123456")).to be_an_instance_of(User)
+    end
+
+  end
 end
