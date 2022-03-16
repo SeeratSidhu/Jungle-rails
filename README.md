@@ -4,8 +4,8 @@ A mini e-commerce application built with Rails 4.2. Users can browse the website
 
 ## Screenshots
 
-!["Screenshot description"](URL)
-!["Screenshot description"](URL)
+!["Homepage"](https://github.com/SeeratSidhu/Jungle-rails/blob/master/docs/Homepage.png?raw=true)
+!["Order-confirmation"](https://github.com/SeeratSidhu/Jungle-rails/blob/master/docs/Order-confirmation.png?raw=true)
 
 ## Setup
 
