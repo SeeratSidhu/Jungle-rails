@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @line_items = @order.line_items
 
+    OrderMailer.order_confirmation(params[:id]).deliver_later
+
     puts @order.inspect
     puts @line_items.inspect
     

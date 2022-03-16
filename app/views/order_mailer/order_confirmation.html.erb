@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Jungle.com!</h1>
+    <p>
+      You have successfully placed an order,
+      Total amount paid is: <%= humanized_money_with_symbol @order.total_cents / 100.00 %>.<br>
+    </p>
+    <p>
+      The following items were ordered:
+      <table>
+      <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Total Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @line_items.each do |item| %>
+    <tr>
+    <% product = Product.find(item.product_id) %>
+      <td>
+        <%= product.name %>
+      </td>
+      <td>
+        <%= item.quantity%>
+      </td>
+      <td>
+        <%= humanized_money_with_symbol item.total_price_cents / 100.0%>
+      </td>
+    </tr>
+  <%end%>
+  </tbody>
+  </table>
+    </p>
+    <p>Thanks for your order and have a great day!</p>
+  </body>
+</html>
